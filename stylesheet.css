@@ -36,7 +36,7 @@ html {
 body {
   max-height: 100vh;
   max-width: 100vw;
-  background-color: #f8ede3;
+  background: linear-gradient(to left top, #2f0059, #003a88, #0066a6, #008fb7, #3cb6c0);;
 }
 
 button {
