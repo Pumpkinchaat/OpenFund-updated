@@ -20,7 +20,7 @@ git clone git@github.com:Pumpkinchaat/OpenFund.git
 ```bash
 npm install
 ```
-3. Create the __.env.local__ file and save your credentials in it 
+3. Create the __next.config.js__ file and save your credentials in it 
 ```bash
 ACCOUNT_SECRET="random random random random random random random random random random random random"
 ETH_NODE_LINK="https://rinkeby.infura.io/v3/randomxxx123linkxx123random"
