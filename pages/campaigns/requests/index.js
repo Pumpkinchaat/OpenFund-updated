@@ -100,8 +100,8 @@ class Requests extends Component {
   voteButtonHandler = async (index) => {
     const campaignShow = campaign(this.state.address);
     // console.log(index);
-    console.log(campaignShow);
-    console.log(this.state.account);
+    // console.log(campaignShow);
+    // console.log(this.state.account);
 
     await campaignShow.methods.voting(index).send({
       from: this.state.account,
@@ -112,11 +112,15 @@ class Requests extends Component {
 
   finalizeButtonHandler = async (index) => {
     const campaignShow = campaign(this.state.address);
-    const account = await web3.eth.getAccounts([0]);
+    const account = await web3.eth.getAccounts()[0];
+    console.log(this.state.account);
+    console.log("here");
 
     await campaignShow.methods.finalSubmition(index).send({
-      from: account,
+      from: this.state.account,
     });
+
+    console.log("ola");
 
     Router.pushRoute(`/campaigns/${this.state.address}`);
   };
