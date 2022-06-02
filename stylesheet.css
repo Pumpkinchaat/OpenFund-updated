@@ -7,24 +7,20 @@
 }
 
 /* This is for scrollbar DO NOT TOUCH */
-*::-webkit-scrollbar-track
-{
-	border: 1px solid black;
-	background-color: #F5F5F5;
+*::-webkit-scrollbar-track {
+  border: 1px solid black;
+  background-color: #f5f5f5;
 }
 
-*::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #F5F5F5;
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
 }
 
-*::-webkit-scrollbar-thumb
-{
-	background-color: #000000;	
+*::-webkit-scrollbar-thumb {
+  background-color: #000000;
 }
 /* This is for scrollbar DO NOT TOUCH */
-
 
 html {
   font-size: 16px;

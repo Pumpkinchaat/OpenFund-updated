@@ -89,24 +89,24 @@ contract Campaign{
     //The function checks based upon the contribution from the total amount 
     //of indivisual voters and make sure that the total percentage is more than 50
     //if yes the transaction proceeds and the request closes 
-
+ 
     function finalSubmition(uint index) public restricted{
        Requests storage req = request[index];
-       uint percent =0;
-       uint amount= 0;
+       uint percent = 0;
+       uint amount = 0;
        address adrs;
-       for(uint i=0;i<donors_details.length;++i){
+       for(uint i = 0 ; i < donors_details.length ; ++i){
            if(req.voters[donors_details[i].donar]){
                 adrs = donors_details[i].donar;
-                amount = donors_amount[adrs];
+                amount = donors_details[i].amount;
                 uint p = amount * 100;
-                percent = percent+ uint(p/balance);
+                percent = percent + p/balance;
            }
        }
        req.votingPercentage = percent; 
-       require(req.votingPercentage>50, "not enough percentage");
+       require(percent > 50, "not enough percentage");
        require(!req.status,"already sent transaction");
-       req.receiver.transfer((req.amount)*1 ether);
+       req.receiver.transfer((req.amount));
        balance -= req.amount;
        req.status = true;
     }

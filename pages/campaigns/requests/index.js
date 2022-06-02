@@ -42,7 +42,7 @@ class Requests extends Component {
       address: this.props.address,
       donorsDetail: this.props.donorsDetail,
       account: "",
-      voted: false,
+      voted: {},
     };
 
     this.canVote();
@@ -65,24 +65,28 @@ class Requests extends Component {
     const temp = await campaignShow.methods.VoteOrnot(index, account).call();
     console.log(temp);
 
-    if (this.state.voted !== temp) {
+    if (this.state.voted[`${index}`] !== temp) {
+      const temp = this.state.voted;
+      temp[`${index}`] = await campaignShow.methods
+        .VoteOrnot(index, account)
+        .call();
       this.setState({
         ...this.state,
-        voted: await campaignShow.methods.VoteOrnot(index, account).call(),
+        voted: temp,
       });
 
-      console.log(this.state.voted, "wefwfe");
+      console.log(this.state, "wallah wallah");
     } else {
-      console.log(this.state.voted, "wedwefwefwefwe");
+      console.log(this.state, "wedwefwefwefwe");
     }
   };
 
-  canVote = () => {
+  canVote = (index) => {
     const account = this.state.account;
 
     for (let i = 0; i < this.state.donorsDetail.length; i++) {
       if (account == this.state.donorsDetail[i].donar) {
-        return !this.state.voted;
+        return !this.state.voted[index];
       }
     }
     return false;
@@ -154,7 +158,7 @@ class Requests extends Component {
                   </td>
                   <td>{request.request.reason}</td>
                   <td>
-                    {this.canVote() ? (
+                    {this.canVote(request.index) ? (
                       <button
                         onClick={() => {
                           this.voteButtonHandler(request.index);

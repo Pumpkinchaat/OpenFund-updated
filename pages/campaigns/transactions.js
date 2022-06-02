@@ -90,11 +90,12 @@ class Transactions extends Component {
             </thead>
             <tbody>
               {this.state.requests.map((request, index) => {
+                console.log(request , "lmao brah")
                 return (
                   <tr key={index}>
                     <th scope="row">{index + 1}</th>
-                    <td>{request.reciever}</td>
-                    <td>{request.amount}</td>
+                    <td>{request.receiver}</td>
+                    <td>{web3.utils.fromWei(request.amount , "ether")} ether</td>
                     <td>{request.reason}</td>
                   </tr>
                 );
