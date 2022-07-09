@@ -6,6 +6,10 @@ With OpenFund, we plan to revolutionise and reimagine how crowd sourcing happens
 
 OpenFund is powered by Etherium Blockchain.
 
+## Creaters:
+1. Manojna Vinjamuri - Solidity
+2. Susmit Singh - Frontend
+
 ## Installation
 
 ☠️⚠️ **THIS PROJECT IS UNSTABLE AND IN ACTIVE DEVELOPMENT, SOME PARTS OF THE APPLICATIONS ARE INCOMPLETE.** ⚠️☠️
